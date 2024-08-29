@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = pg_connect("host=" . DB_HOST . " dbname=" . DB_NAME . " user=" . DB_USER . " password=" . DB_PASS);
 
     if (!$conn) {
-        die("Connection failed: " . pg_last_error());
+        die("Sorry, something went wrong. Please try again later.");
     }
 
     $query = "SELECT user_id, password_hash FROM Users WHERE email = $1";
