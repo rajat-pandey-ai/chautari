@@ -15,18 +15,8 @@
 
 <body>
     <main>
-        <h1>
-            Struggling to discover fun and exciting events near you?
-            <!--
-            Finding it hard to discover fun and exciting events nearby?
-            
-            Having trouble finding fun and exciting events near you.
-            
-            Struggling to find fun & exiciting events near you?
-            
-            <span id="primary-highlight">fun &&emsp; <span id="smalltext">&ensp;</span>exciting</span> events near you?
--->
-        </h1>
+        <h1>Struggling to discover fun and exciting events near you?</h1>
+
         <p class="description">Chautari brings the best local events tailored to you so you can join
             local happenings with ease.</p>
 
@@ -44,13 +34,12 @@
             <a class="secondary-button" href="./pages/about.php">Learn more</a>
         </div>
 
-        <div>
+        <div class="advert-video-wrapper">
             <img class="advert-video" src="./assets/images/placeholder-video.png" alt="video showcasing the product">
         </div>
 
         <hr>
     </main>
-
 
     <?php include 'templates/home.php'; ?>
 </body>

@@ -32,17 +32,25 @@
             <form action="../handlers/login_handler.php" method="post">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error"></span>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <span id="passwordError" class="error"></span>
 
                 <br>
 
                 <button type="submit">Log in</button>
             </form>
         </div>
+        <style>
+            .error {
+                color: #d42f2f;
+            }
+        </style>
     </main>
 
+    <script src="../assets/js/login_validation.js"></script>
 </body>
 
 </html>

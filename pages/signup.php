@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="../assets/css/default.css">
     <link rel="stylesheet" href="../assets/css/sign.css">
-    <script src="../assets/js/password_match.js"></script>
 </head>
 
 <body class="centerBody">
@@ -28,20 +27,25 @@
             <form action="../handlers/signup_handler.php" method="post" onsubmit="return validateForm()">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
+                <span id="nameError" class="error"></span>
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error"></span>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <span id="passwordError" class="error"></span>
 
 
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" id="confirm_password" name="confirm_password" required>
+                <span id="confirmPasswordError" class="error"></span>
 
                 <span id="passNoMatch"></span>
                 <style>
-                    #passNoMatch {
+                    #passNoMatch,
+                    .error {
                         color: #d42f2f;
                     }
                 </style>
@@ -51,6 +55,7 @@
         </div>
     </main>
 
+    <script src="../assets/js/signup_validation.js"></script>
 </body>
 
 </html>

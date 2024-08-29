@@ -1,11 +1,18 @@
 <?php
 session_start();
-
 require '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = htmlspecialchars(trim($_POST['email']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email format.");
+    }
+
+    if (strlen($password) < 8) {
+        die("Password must be at least 8 characters long.");
+    }
 
     $conn = pg_connect("host=" . DB_HOST . " dbname=" . DB_NAME . " user=" . DB_USER . " password=" . DB_PASS);
 
@@ -23,21 +30,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password_hash = $row['password_hash'];
 
             if (password_verify($password, $password_hash)) {
+                session_regenerate_id(true);
+
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['email'] = $email;
+
                 header("Location: ../pages/explore.php");
                 exit();
             } else {
-                echo "Username or password is incorrect.";
+                die("Username or password is incorrect.");
             }
         } else {
-            echo "Username or password is incorrect";
+            die("Username or password is incorrect.");
         }
     } else {
-        echo "Sorry, something went wrong. Please try again later.";
+        die("Sorry, something went wrong. Please try again later.");
     }
 
     pg_close($conn);
 } else {
-    echo "Invalid request method.";
+    die("Invalid request method.");
 }
