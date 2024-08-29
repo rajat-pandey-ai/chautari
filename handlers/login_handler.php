@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../pages/explore.php");
                 exit();
             } else {
-                echo "Invalid password.";
+                echo "Username or password is incorrect.";
             }
         } else {
-            echo "No account found with that email address.";
+            echo "Username or password is incorrect";
         }
     } else {
-        echo "Error: " . pg_last_error($conn);
+        echo "Sorry, something went wrong. Please try again later.";
     }
 
     pg_close($conn);
