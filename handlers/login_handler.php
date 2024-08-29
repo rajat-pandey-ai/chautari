@@ -7,35 +7,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST['email']));
     $password = $_POST['password'];
 
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = pg_connect("host=" . DB_HOST . " dbname=" . DB_NAME . " user=" . DB_USER . " password=" . DB_PASS);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if (!$conn) {
+        die("Connection failed: " . pg_last_error());
     }
 
-    $stmt = $conn->prepare("SELECT user_id, password_hash FROM Users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    $query = "SELECT user_id, password_hash FROM Users WHERE email = $1";
+    $result = pg_query_params($conn, $query, array($email));
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($user_id, $password_hash);
-        $stmt->fetch();
+    if ($result) {
+        if (pg_num_rows($result) > 0) {
+            $row = pg_fetch_assoc($result);
+            $user_id = $row['user_id'];
+            $password_hash = $row['password_hash'];
 
-        if (password_verify($password, $password_hash)) {
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['email'] = $email;
-            header("Location: ../pages/explore.php");
-            exit();
+            if (password_verify($password, $password_hash)) {
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['email'] = $email;
+                header("Location: ../pages/explore.php");
+                exit();
+            } else {
+                echo "Invalid password.";
+            }
         } else {
-            echo "Invalid password.";
+            echo "No account found with that email address.";
         }
     } else {
-        echo "No account found with that email address.";
+        echo "Error: " . pg_last_error($conn);
     }
 
-    $stmt->close();
-    $conn->close();
+    pg_close($conn);
 } else {
     echo "Invalid request method.";
 }

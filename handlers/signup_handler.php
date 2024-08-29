@@ -13,24 +13,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = pg_connect("host=" . DB_HOST . " dbname=" . DB_NAME . " user=" . DB_USER . " password=" . DB_PASS);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if (!$conn) {
+        die("Connection failed: " . pg_last_error());
     }
 
-    $stmt = $conn->prepare("INSERT INTO Users (name, email, password_hash) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $email, $password_hash);
+    $query = "INSERT INTO Users (name, email, password_hash) VALUES ($1, $2, $3)";
+    $result = pg_query_params($conn, $query, array($name, $email, $password_hash));
 
-    if ($stmt->execute()) {
+    if ($result) {
         header("Location: ../pages/login.php?signup=success");
         exit();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error: " . pg_last_error($conn);
     }
 
-    $stmt->close();
-    $conn->close();
+    pg_close($conn);
 } else {
     echo "Invalid request method.";
 }

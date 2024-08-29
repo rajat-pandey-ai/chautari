@@ -1,6 +1,6 @@
-CREATE DATABASE event_management;
+CREATE DATABASE event_booking_system;
 
-\c event_management;
+\c event_booking_system;
 
 CREATE TABLE Users
 (
