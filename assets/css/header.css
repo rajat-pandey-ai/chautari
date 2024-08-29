@@ -74,3 +74,15 @@ li a {
 .nav-button-secondary:hover {
   background-color: #f0f0f0;
 }
+
+@media (max-width: 650px) {
+  header > div:nth-of-type(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 470px) {
+  header > div:nth-of-type(3) {
+    display: none;
+  }
+}

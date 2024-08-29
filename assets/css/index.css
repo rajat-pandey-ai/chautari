@@ -89,3 +89,61 @@ hr {
   background: #f0f0f0;
   margin: 32px 0;
 }
+
+@media (max-width: 1500px) {
+  .advert-video {
+    max-width: 70rem;
+  }
+}
+
+@media (max-width: 1350px) {
+  .advert-video {
+    max-width: 60rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .advert-video {
+    max-width: 50rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .advert-video {
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .advert-video {
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .advert-video {
+    max-width: 25rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .cta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .advert-video {
+    max-width: 20rem;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0;
+  }
+}
