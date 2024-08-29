@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +13,36 @@
     <link rel="stylesheet" href="../assets/css/default.css">
     <link rel="stylesheet" href="../assets/css/sign.css">
 </head>
+
 <body class="centerBody">
 
-<main class="formCenter">
+    <main class="formCenter">
 
-    <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success'): ?>
-        <p class="signupSuccessMessage">Signup was successful! Please log in.</p>
-    <?php endif; ?>
+        <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success'): ?>
+            <p class="signupSuccessMessage">Signup was successful! Please log in.</p>
+        <?php endif; ?>
 
-    <img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset="">
-    
-    <h1>Log in</h1>
-    
-    <p class="snippetSignInfo">New to Chautari? <a href="./signup.php">Sign up</a></p>
-    
-    <div class="formbody">
-        <form action="../handlers/login_handler.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            
-            <br>
+        <img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset="">
 
-            <button type="submit">Log in</button>
-        </form>
-    </div>
-</main>
+        <h1>Log in</h1>
+
+        <p class="snippetSignInfo">New to Chautari? <a href="./signup.php">Sign up</a></p>
+
+        <div class="formbody">
+            <form action="../handlers/login_handler.php" method="post">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <br>
+
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </main>
 
 </body>
+
 </html>

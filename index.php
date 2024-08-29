@@ -1,5 +1,4 @@
-
-<?php include'includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <head>
     <title>Home - Chautari</title>
@@ -13,11 +12,12 @@
         }
     </style>
 </head>
+
 <body>
     <main>
         <h1>
             Struggling to discover fun and exciting events near you?
-<!--
+            <!--
             Finding it hard to discover fun and exciting events nearby?
             
             Having trouble finding fun and exciting events near you.
@@ -33,25 +33,28 @@
         <div class="cta">
             <a class="primary-button" href="./pages/explore.php">Discover events near you
                 <span class="button-arrow">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"
-                    class="ml-1">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2.5" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2.5" d="M19 12H4.75"></path>
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" class="ml-1">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M19 12H4.75"></path>
                     </svg>
                 </span>
             </a>
             <a class="secondary-button" href="./pages/about.php">Learn more</a>
         </div>
 
-        <img class="advert-video" src="./assets/images/placeholder-video.png" alt="video showcasing the product">
+        <div>
+            <img class="advert-video" src="./assets/images/placeholder-video.png" alt="video showcasing the product">
+        </div>
+
         <hr>
     </main>
 
-    
-    <?php include'templates/home.php'; ?>
+
+    <?php include 'templates/home.php'; ?>
 </body>
+
 </html>
 
-<?php include'includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
