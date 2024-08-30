@@ -1,3 +1,8 @@
+<?php
+include('../handlers//auth.php');
+redirect_if_logged_in();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
