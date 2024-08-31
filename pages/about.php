@@ -60,13 +60,17 @@
             }
 
             .about-us-extended-logo {
+                max-width: 750px;
                 margin: 30px auto;
+                overflow: hidden;
             }
 
-            .about-us-extended-logo img {
-                max-width: 500px;
+            .about-us-extended-logo > img {
+                width: 80%;;
+                height: 100%;
                 display: block;
                 margin: 0 auto;
+                object-fit: contain;
             }
 
             p {
