@@ -2,23 +2,22 @@
 require '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars(trim($_POST['name']));
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email format.");
     }
 
+    $name = htmlspecialchars(trim($_POST['name']));
     if (strlen($name) < 2) {
         die("Name must be at least 2 characters long.");
     }
 
+    $password = $_POST['password'];
     if (strlen($password) < 8) {
         die("Password must be at least 8 characters long.");
     }
 
+    $confirm_password = $_POST['confirm_password'];
     if ($password !== $confirm_password) {
         die("Passwords do not match.");
     }

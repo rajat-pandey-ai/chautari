@@ -4,12 +4,11 @@ require '../config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email format.");
     }
 
+    $password = $_POST['password'];
     if (strlen($password) < 8) {
         die("Password must be at least 8 characters long.");
     }
@@ -38,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../pages/explore.php");
                 exit();
             } else {
-                die("Username or password is incorrect.");
+                die("Invalid login credentials.");
             }
         } else {
-            die("Username or password is incorrect.");
+            die("Invalid login credentials.");
         }
     } else {
         die("Sorry, something went wrong. Please try again later.");
