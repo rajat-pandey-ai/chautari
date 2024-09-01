@@ -67,7 +67,6 @@
 
             .about-us-extended-logo > img {
                 width: 80%;;
-                height: 100%;
                 display: block;
                 margin: 0 auto;
                 object-fit: contain;
