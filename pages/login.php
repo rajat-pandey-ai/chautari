@@ -27,7 +27,7 @@ redirect_if_logged_in();
             <p class="signupSuccessMessage">Signup was successful! Please log in.</p>
         <?php endif; ?>
 
-        <img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset="">
+        <a href="../index.php" target="_self"><img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset=""></a>
 
         <h1>Log in</h1>
 

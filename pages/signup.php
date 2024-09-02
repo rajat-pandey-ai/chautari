@@ -22,7 +22,7 @@ redirect_if_logged_in();
 <body class="centerBody">
 
     <main class="formCenter">
-        <img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset="">
+        <a href="../index.php" target="_self"><img class="smallImageInForm" src="../assets/images/logo-32.svg" alt="" srcset=""></a>
 
         <h1>Sign up</h1>
 
