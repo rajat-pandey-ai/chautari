@@ -1,4 +1,7 @@
 <?php
+
+include 'credentials.php';
+
 const DB_HOST = 'localhost';
 const DB_USER = 'client';
 const DB_PASS = 'client';

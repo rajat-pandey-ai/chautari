@@ -1,6 +1,6 @@
 <?php
-include('../handlers//auth.php');
-redirect_if_logged_in();
+include('../includes/auth_test.php');
+redirectIfAuthenticated();
 ?>
 
 <!DOCTYPE html>

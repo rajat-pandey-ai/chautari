@@ -1,5 +1,6 @@
 <?php
-include '../handlers/logout_handler.php';
+include('../includes/auth_test.php');
+redirectIfAuthenticated();
 ?>
 
 <!DOCTYPE html>
